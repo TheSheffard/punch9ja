@@ -5,7 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { NavLinks } from "../Components/NavComp/NavFucn";
-import AdSense from "../Components/AdSense";
+// import AdSense from "../Components/AdSense";
 
 type NewsTypes = {
   _id: string;
@@ -54,7 +54,7 @@ export const GeneralPage = () => {
     <div className="grid grid-cols-1 gap-3 md:gap-10 sm:grid-cols-[1fr_300px]">
       {/* News List Section */}
       <div>
-      <AdSense adSlot="3891595190" />
+      {/* <AdSense adSlot="3891595190" /> */}
 
         <div className="grid grid-cols-1 gap-10 px-4 sm:px-2">
           {loading
