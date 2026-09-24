@@ -1,13 +1,22 @@
-import AdSense from "../AdSense"
-import { SportsNewsGrid } from "./SportHelp"
+import GPTAd from "../GPTAd"; // Update path if necessary
+import { SportsNewsGrid } from "./SportHelp";
 
 export const Sport = () => {
   return (
     <div>
-      <AdSense adSlot="3891595190" />
-      <SportsNewsGrid />
-      <AdSense adSlot="3891595190" />
+      {/* First Ad Slot */}
+      <GPTAd 
+        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/header" 
+        divId="sport-top-ad-slot" 
+      />
 
+      <SportsNewsGrid />
+
+      {/* Second Ad Slot (Must use a different divId) */}
+      <GPTAd 
+        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/header" 
+        divId="sport-bottom-ad-slot" 
+      />
     </div>
-  )
-}
+  );
+};

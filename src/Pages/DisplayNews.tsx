@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AdSense from "../Components/AdSense";
-
+// import AdSense from "../Components/AdSense";
+// 
 type NewsType = {
     _id: string;
     categoryId: string;
@@ -61,7 +61,7 @@ export const NewsDetails = () => {
 
     return (
         <div className="max-w-5xl mx-auto p-6">
-            <AdSense adSlot="3891595190" />
+            {/* <AdSense adSlot="3891595190" /> */}
 
             {news.image && <img src={news.image} alt={news.title} className="w-full h-fit object-cover rounded-md" />}
 
