@@ -16,6 +16,7 @@ export const EconomyComp = () => {
 
         <EconomyNewsGrid/>
       {/* <AdSense adSlot="3891595190" /> */}
+      
 
     </div>
   )
