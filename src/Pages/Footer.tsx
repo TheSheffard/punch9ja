@@ -3,17 +3,23 @@ import { NavLinks } from "../Components/NavComp/NavFucn";
 import GPTAd from "../Components/GPTAd";
 // import AdSense from "../Components/AdSense";
 
-
 export const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-16">
       {/* <AdSense adSlot="3891595190" /> */}
 
-<GPTAd
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/footer" 
-        divId="div-gpt-ad-1790414046745-0" 
-        sizes={[[336, 280], [200, 200], 'fluid', [250, 250], [300, 100], [300, 250]]}
-        style={{ minWidth: '200px', minHeight: '100px', display: 'block' }}
+      <GPTAd
+        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/footer"
+        divId="div-gpt-ad-1790414046745-0"
+        sizes={[
+          [336, 280],
+          [200, 200],
+          "fluid",
+          [250, 250],
+          [300, 100],
+          [300, 250],
+        ]}
+        style={{ minWidth: "200px", minHeight: "100px", display: "block" }}
       />
 
       <div className="max-w-7xl mx-auto px-4">
@@ -30,23 +36,25 @@ export const Footer = () => {
               </h2>
             </div>
             <p className="text-gray-400 text-lg leading-relaxed max-w-2xl">
-              At Punch 9ja, we gather, investigate, and present news and current events 
-              through various media platforms. Delivering trusted journalism to millions 
-              of readers worldwide.
+              At Punch 9ja, we gather, investigate, and present news and current
+              events through various media platforms. Delivering trusted
+              journalism to millions of readers worldwide.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-4 mt-8">
-              {['Facebook', 'Twitter', 'Instagram', 'LinkedIn'].map((social) => (
-                <div
-                  key={social}
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
-                >
-                  <span className="text-white text-sm font-semibold">
-                    {social.charAt(0)}
-                  </span>
-                </div>
-              ))}
+              {["Facebook", "Twitter", "Instagram", "LinkedIn"].map(
+                (social) => (
+                  <div
+                    key={social}
+                    className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-red-600 cursor-pointer transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <span className="text-white text-sm font-semibold">
+                      {social.charAt(0)}
+                    </span>
+                  </div>
+                ),
+              )}
             </div>
           </div>
 
@@ -59,8 +67,8 @@ export const Footer = () => {
             <ul className="space-y-3">
               {NavLinks.map((link) => (
                 <li key={link.to}>
-                  <Link 
-                    to={link.to} 
+                  <Link
+                    to={link.to}
                     className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group"
                   >
                     <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-red-500 transition-colors duration-300"></div>
@@ -79,8 +87,8 @@ export const Footer = () => {
             </h3>
             <ul className="space-y-3">
               <li>
-                <Link 
-                  to="/contact" 
+                <Link
+                  to="/contact"
                   className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group"
                 >
                   <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 transition-colors duration-300"></div>
@@ -88,8 +96,8 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/privacy-policy" 
+                <Link
+                  to="/privacy-policy"
                   className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group"
                 >
                   <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 transition-colors duration-300"></div>
@@ -97,8 +105,8 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/terms" 
+                <Link
+                  to="/terms"
                   className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group"
                 >
                   <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 transition-colors duration-300"></div>
@@ -106,8 +114,8 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link 
-                  to="/disclaimer" 
+                <Link
+                  to="/disclaimer"
                   className="text-gray-400 hover:text-white hover:translate-x-2 transition-all duration-300 flex items-center gap-2 group"
                 >
                   <div className="w-1 h-1 bg-gray-600 rounded-full group-hover:bg-blue-500 transition-colors duration-300"></div>
@@ -115,8 +123,6 @@ export const Footer = () => {
                 </Link>
               </li>
             </ul>
-
-          
           </div>
         </div>
 
@@ -125,7 +131,10 @@ export const Footer = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             {/* Copyright */}
             <div className="text-gray-400 text-sm">
-              <p>Copyright © {new Date().getFullYear()} Punch 9ja. All rights reserved.</p>
+              <p>
+                Copyright © {new Date().getFullYear()} Punch 9ja. All rights
+                reserved.
+              </p>
             </div>
 
             {/* Additional Links */}
@@ -148,7 +157,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
     </footer>
   );
 };
