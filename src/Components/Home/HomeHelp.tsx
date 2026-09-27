@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaArrowRight,  FaClock } from "react-icons/fa";
+import { FaArrowRight, FaClock } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useNavigate } from "react-router-dom";
@@ -20,30 +20,46 @@ type NewsTypes = {
 };
 
 // Enhanced Category Badge Component
-const CategoryBadge = ({ category, color = "bg-gradient-to-r from-blue-600 to-purple-600" }: { category: string; color?: string }) => (
-  <span className={`${color} text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide`}>
+const CategoryBadge = ({
+  category,
+  color = "bg-gradient-to-r from-blue-600 to-purple-600",
+}: {
+  category: string;
+  color?: string;
+}) => (
+  <span
+    className={`${color} text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide`}
+  >
     {category}
   </span>
 );
 
 // Enhanced News Card Component
-const NewsCard = ({ news, size = "medium", showExcerpt = true }: { news: NewsTypes; size?: "small" | "medium" | "large"; showExcerpt?: boolean }) => {
+const NewsCard = ({
+  news,
+  size = "medium",
+  showExcerpt = true,
+}: {
+  news: NewsTypes;
+  size?: "small" | "medium" | "large";
+  showExcerpt?: boolean;
+}) => {
   const navigate = useNavigate();
-  
+
   const sizeClasses = {
     small: "h-48",
     medium: "h-64",
-    large: "h-80"
+    large: "h-80",
   };
 
   const titleSizes = {
     small: "text-sm",
     medium: "text-lg",
-    large: "text-2xl"
+    large: "text-2xl",
   };
 
   return (
-    <div 
+    <div
       className={`group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2`}
       onClick={() => navigate(`/news/${news._id}`)}
     >
@@ -64,9 +80,11 @@ const NewsCard = ({ news, size = "medium", showExcerpt = true }: { news: NewsTyp
           </div>
         </div>
       </div>
-      
+
       <div className="p-6">
-        <h3 className={`font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 ${titleSizes[size]} line-clamp-3`}>
+        <h3
+          className={`font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 ${titleSizes[size]} line-clamp-3`}
+        >
           {news.title}
         </h3>
         {showExcerpt && (
@@ -75,10 +93,7 @@ const NewsCard = ({ news, size = "medium", showExcerpt = true }: { news: NewsTyp
           </p>
         )}
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-xs text-gray-500 font-medium">
-            {news.date}
-          </span>
-        
+          <span className="text-xs text-gray-500 font-medium">{news.date}</span>
         </div>
       </div>
     </div>
@@ -92,7 +107,9 @@ export const HomeHero = () => {
   useEffect(() => {
     const fetchTodayNews = async () => {
       try {
-        const response = await fetch("https://punchscrapper.onrender.com/post/Lite");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/Lite",
+        );
         const data = await response.json();
         if (response.ok && data) {
           setNews(data.newsItem);
@@ -112,72 +129,72 @@ export const HomeHero = () => {
           <div className="space-y-8">
             <div className="space-y-6">
               {/* Category Badge Skeleton */}
-              <Skeleton 
-                width={140} 
-                height={32} 
-                className="rounded-full" 
+              <Skeleton
+                width={140}
+                height={32}
+                className="rounded-full"
                 baseColor="#e2e8f0"
                 highlightColor="#f1f5f9"
               />
-              
+
               {/* Title Skeleton */}
               <div className="space-y-4">
-                <Skeleton 
-                  height={32} 
-                  className="rounded-lg w-full" 
+                <Skeleton
+                  height={32}
+                  className="rounded-lg w-full"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
-                <Skeleton 
-                  height={32} 
-                  className="rounded-lg w-4/5" 
+                <Skeleton
+                  height={32}
+                  className="rounded-lg w-4/5"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
-                <Skeleton 
-                  height={32} 
-                  className="rounded-lg w-3/4" 
+                <Skeleton
+                  height={32}
+                  className="rounded-lg w-3/4"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
               </div>
-              
+
               {/* Content Skeleton */}
               <div className="space-y-3">
-                <Skeleton 
-                  height={20} 
-                  className="rounded-lg w-full" 
+                <Skeleton
+                  height={20}
+                  className="rounded-lg w-full"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
-                <Skeleton 
-                  height={20} 
-                  className="rounded-lg w-full" 
+                <Skeleton
+                  height={20}
+                  className="rounded-lg w-full"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
-                <Skeleton 
-                  height={20} 
-                  className="rounded-lg w-2/3" 
+                <Skeleton
+                  height={20}
+                  className="rounded-lg w-2/3"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
               </div>
             </div>
-            
+
             {/* Buttons Skeleton */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Skeleton 
-                height={56} 
-                width={200} 
-                className="rounded-full" 
+              <Skeleton
+                height={56}
+                width={200}
+                className="rounded-full"
                 baseColor="#e2e8f0"
                 highlightColor="#f1f5f9"
               />
-              <Skeleton 
-                height={56} 
-                width={180} 
-                className="rounded-full" 
+              <Skeleton
+                height={56}
+                width={180}
+                className="rounded-full"
                 baseColor="#e2e8f0"
                 highlightColor="#f1f5f9"
               />
@@ -187,17 +204,17 @@ export const HomeHero = () => {
             <div className="flex gap-8 pt-8 border-t border-gray-200">
               {[1, 2, 3].map((item) => (
                 <div key={item} className="text-center">
-                  <Skeleton 
-                    height={32} 
-                    width={80} 
-                    className="rounded-lg mx-auto mb-2" 
+                  <Skeleton
+                    height={32}
+                    width={80}
+                    className="rounded-lg mx-auto mb-2"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
-                  <Skeleton 
-                    height={16} 
-                    width={60} 
-                    className="rounded-lg mx-auto" 
+                  <Skeleton
+                    height={16}
+                    width={60}
+                    className="rounded-lg mx-auto"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
@@ -210,36 +227,36 @@ export const HomeHero = () => {
           <div className="relative">
             {/* Main Image Skeleton */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <Skeleton 
-                height={600} 
-                className="w-full" 
+              <Skeleton
+                height={600}
+                className="w-full"
                 baseColor="#e2e8f0"
                 highlightColor="#f1f5f9"
               />
             </div>
-            
+
             {/* Floating Element Skeleton */}
             <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl">
               <div className="flex items-center gap-3">
-                <Skeleton 
-                  width={48} 
-                  height={48} 
-                  circle 
+                <Skeleton
+                  width={48}
+                  height={48}
+                  circle
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
                 <div className="space-y-2">
-                  <Skeleton 
-                    height={16} 
-                    width={80} 
-                    className="rounded-lg" 
+                  <Skeleton
+                    height={16}
+                    width={80}
+                    className="rounded-lg"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
-                  <Skeleton 
-                    height={20} 
-                    width={100} 
-                    className="rounded-lg" 
+                  <Skeleton
+                    height={20}
+                    width={100}
+                    className="rounded-lg"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
@@ -260,22 +277,25 @@ export const HomeHero = () => {
         {/* Content Section */}
         <div className="space-y-8">
           <div className="space-y-4">
-            <CategoryBadge category="Breaking News" color="bg-gradient-to-r from-red-500 to-orange-500" />
+            <CategoryBadge
+              category="Breaking News"
+              color="bg-gradient-to-r from-red-500 to-orange-500"
+            />
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
               {featuredNews.title}
             </h1>
-            <GPTAd 
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/beforecontent" 
-        divId="div-gpt-ad-1790413598243-0" 
-        sizes={[[200, 200], [300, 250], 'fluid', [250, 250], [300, 600]]}
-      />
+            <GPTAd
+              adUnitPath="/23379399954/ca-pub-7013164622378766-tag/beforecontent"
+              divId="div-gpt-ad-1790413598243-0"
+              sizes={[[200, 200], [300, 250], "fluid", [250, 250], [300, 600]]}
+            />
             <p className="text-xl text-gray-600 leading-relaxed">
               {featuredNews.content.slice(0, 200)}...
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4">
-            <button 
+            <button
               onClick={() => navigate(`/news/${featuredNews._id}`)}
               className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center gap-2"
             >
@@ -311,7 +331,7 @@ export const HomeHero = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
           </div>
-          
+
           {/* Floating elements */}
           <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl">
             <div className="flex items-center gap-3">
@@ -341,7 +361,9 @@ export const TopNews = () => {
     const fetchTodayNews = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("https://punchscrapper.onrender.com/post/News");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/News",
+        );
         const data = await response.json();
         setNews(data.newsItem);
       } catch (error: any) {
@@ -360,16 +382,16 @@ export const TopNews = () => {
         <div className="max-w-7xl mx-auto px-4">
           {/* Header Skeleton */}
           <div className="text-center mb-16">
-            <Skeleton 
-              height={60} 
-              width={300} 
+            <Skeleton
+              height={60}
+              width={300}
               className="mx-auto mb-4 rounded-lg"
               baseColor="#e2e8f0"
               highlightColor="#f1f5f9"
             />
-            <Skeleton 
-              height={24} 
-              width={400} 
+            <Skeleton
+              height={24}
+              width={400}
               className="mx-auto rounded-lg"
               baseColor="#e2e8f0"
               highlightColor="#f1f5f9"
@@ -380,43 +402,43 @@ export const TopNews = () => {
             {/* Featured Story Skeleton */}
             <div className="space-y-4">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <Skeleton 
-                  height={500} 
+                <Skeleton
+                  height={500}
                   className="w-full rounded-3xl"
                   baseColor="#e2e8f0"
                   highlightColor="#f1f5f9"
                 />
                 <div className="absolute bottom-8 left-8 right-8 space-y-4">
-                  <Skeleton 
-                    height={32} 
-                    width={120} 
+                  <Skeleton
+                    height={32}
+                    width={120}
                     className="rounded-full"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
-                  <Skeleton 
-                    height={28} 
+                  <Skeleton
+                    height={28}
                     className="w-full rounded-lg"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
-                  <Skeleton 
-                    height={20} 
+                  <Skeleton
+                    height={20}
                     className="w-3/4 rounded-lg"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
                   <div className="flex gap-4 mt-4">
-                    <Skeleton 
-                      height={16} 
-                      width={80} 
+                    <Skeleton
+                      height={16}
+                      width={80}
                       className="rounded-lg"
                       baseColor="#e2e8f0"
                       highlightColor="#f1f5f9"
                     />
-                    <Skeleton 
-                      height={16} 
-                      width={80} 
+                    <Skeleton
+                      height={16}
+                      width={80}
                       className="rounded-lg"
                       baseColor="#e2e8f0"
                       highlightColor="#f1f5f9"
@@ -429,29 +451,32 @@ export const TopNews = () => {
             {/* Grid Stories Skeleton */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {Array.from({ length: 4 }).map((_, index) => (
-                <div key={index} className="bg-white rounded-2xl overflow-hidden shadow-lg">
-                  <Skeleton 
-                    height={192} 
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl overflow-hidden shadow-lg"
+                >
+                  <Skeleton
+                    height={192}
                     className="w-full"
                     baseColor="#e2e8f0"
                     highlightColor="#f1f5f9"
                   />
                   <div className="p-4 space-y-3">
-                    <Skeleton 
-                      height={16} 
-                      width={80} 
+                    <Skeleton
+                      height={16}
+                      width={80}
                       className="rounded-lg"
                       baseColor="#e2e8f0"
                       highlightColor="#f1f5f9"
                     />
-                    <Skeleton 
-                      height={20} 
+                    <Skeleton
+                      height={20}
                       className="w-full rounded-lg"
                       baseColor="#e2e8f0"
                       highlightColor="#f1f5f9"
                     />
-                    <Skeleton 
-                      height={16} 
+                    <Skeleton
+                      height={16}
                       className="w-2/3 rounded-lg"
                       baseColor="#e2e8f0"
                       highlightColor="#f1f5f9"
@@ -472,14 +497,18 @@ export const TopNews = () => {
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-gray-900 mb-4">Top Stories</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stay informed with the most important news and updates from around the world
+            Stay informed with the most important news and updates from around
+            the world
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Featured Story */}
           {news.length > 1 && (
-            <div className="group cursor-pointer" onClick={() => navigate(`/news/${news[1]._id}`)}>
+            <div
+              className="group cursor-pointer"
+              onClick={() => navigate(`/news/${news[1]._id}`)}
+            >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
                   src={news[1].image}
@@ -508,7 +537,12 @@ export const TopNews = () => {
           {/* Grid Stories */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {news.slice(2, 6).map((item) => (
-              <NewsCard key={item._id} news={item} size="small" showExcerpt={false} />
+              <NewsCard
+                key={item._id}
+                news={item}
+                size="small"
+                showExcerpt={false}
+              />
             ))}
           </div>
         </div>
@@ -523,7 +557,10 @@ export const ThirdSection = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchNews = async (url: string, setter: (data: NewsTypes[]) => void) => {
+    const fetchNews = async (
+      url: string,
+      setter: (data: NewsTypes[]) => void,
+    ) => {
       try {
         const response = await fetch(url);
         const data = await response.json();
@@ -538,7 +575,17 @@ export const ThirdSection = () => {
     fetchNews("https://punchscrapper.onrender.com/post/Featured", setTechNews);
   }, []);
 
-  const Section = ({ title, news, category, link }: { title: string; news: NewsTypes[]; category: string; link: string }) => (
+  const Section = ({
+    title,
+    news,
+    category,
+    link,
+  }: {
+    title: string;
+    news: NewsTypes[];
+    category: string;
+    link: string;
+  }) => (
     <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
       <div className="flex items-center justify-between mb-8">
         <h3 className="text-3xl font-bold text-gray-900">{title}</h3>
@@ -553,7 +600,7 @@ export const ThirdSection = () => {
 
       {news.length > 0 ? (
         <>
-          <div 
+          <div
             className="group cursor-pointer mb-8"
             onClick={() => navigate(`/news/${news[0]._id}`)}
           >
@@ -611,14 +658,33 @@ export const ThirdSection = () => {
     <section className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">Explore Categories</h2>
-          <p className="text-xl text-gray-600">Dive deep into your favorite topics</p>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            Explore Categories
+          </h2>
+          <p className="text-xl text-gray-600">
+            Dive deep into your favorite topics
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Section title="Sports" news={sportsNews} category="Sports" link="/sports" />
-          <Section title="General" news={generalNews} category="General" link="/general" />
-          <Section title="Featured" news={techNews} category="Featured" link="/featured" />
+          <Section
+            title="Sports"
+            news={sportsNews}
+            category="Sports"
+            link="/sports"
+          />
+          <Section
+            title="General"
+            news={generalNews}
+            category="General"
+            link="/general"
+          />
+          <Section
+            title="Featured"
+            news={techNews}
+            category="Featured"
+            link="/featured"
+          />
         </div>
       </div>
     </section>
@@ -632,7 +698,9 @@ export const EditorsChoice = () => {
   useEffect(() => {
     const fetchWarNews = async () => {
       try {
-        const response = await fetch("https://punchscrapper.onrender.com/post/News");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/News",
+        );
         const data = await response.json();
         setWarNews(data.newsItem);
       } catch (error) {
@@ -647,13 +715,15 @@ export const EditorsChoice = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold mb-4">Editor's Choice</h2>
-          <p className="text-xl text-gray-300">Curated stories selected by our editorial team</p>
+          <p className="text-xl text-gray-300">
+            Curated stories selected by our editorial team
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Featured Editor's Pick */}
           {warNews.length > 0 && (
-            <div 
+            <div
               className="group cursor-pointer"
               onClick={() => navigate(`/news/${warNews[0]._id}`)}
             >
@@ -729,7 +799,9 @@ export const LastSection = () => {
   useEffect(() => {
     const fetchEconomyNews = async () => {
       try {
-        const response = await fetch("https://punchscrapper.onrender.com/post/Business");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/Business",
+        );
         const data = await response.json();
         setEconomyNews(data.newsItem);
       } catch (error) {
@@ -739,7 +811,9 @@ export const LastSection = () => {
 
     const fetchBusinessNews = async () => {
       try {
-        const response = await fetch("https://punchscrapper.onrender.com/post/Politics");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/Politics",
+        );
         const data = await response.json();
         setBusinessNews(data.newsItem);
       } catch (error) {
@@ -747,9 +821,11 @@ export const LastSection = () => {
       }
     };
 
-    const fetchFeaturesNews = async () => { 
+    const fetchFeaturesNews = async () => {
       try {
-        const response = await fetch("https://punchscrapper.onrender.com/post/Featured");
+        const response = await fetch(
+          "https://punchscrapper.onrender.com/post/Featured",
+        );
         const data = await response.json();
         setFeaturesNews(data.newsItem);
       } catch (error) {
@@ -762,17 +838,17 @@ export const LastSection = () => {
     fetchFeaturesNews();
   }, []);
 
-  const CategorySection = ({ 
-    title, 
-    news, 
-    category, 
-    link, 
+  const CategorySection = ({
+    title,
+    news,
+    category,
+    link,
     gradient = "from-blue-500 to-purple-600",
-    accentColor = "text-blue-600"
-  }: { 
-    title: string; 
-    news: NewsTypes[]; 
-    category: string; 
+    accentColor = "text-blue-600",
+  }: {
+    title: string;
+    news: NewsTypes[];
+    category: string;
     link: string;
     gradient?: string;
     accentColor?: string;
@@ -781,10 +857,14 @@ export const LastSection = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8 pb-4 border-b border-gray-100">
         <div className="flex items-center gap-4">
-          <div className={`w-3 h-12 bg-gradient-to-r ${gradient} rounded-full`}></div>
+          <div
+            className={`w-3 h-12 bg-gradient-to-r ${gradient} rounded-full`}
+          ></div>
           <div>
             <h3 className="text-3xl font-bold text-gray-900">{title}</h3>
-            <p className="text-gray-500 text-sm mt-1">Latest updates and insights</p>
+            <p className="text-gray-500 text-sm mt-1">
+              Latest updates and insights
+            </p>
           </div>
         </div>
         <Link
@@ -799,7 +879,7 @@ export const LastSection = () => {
       {/* Featured Story */}
       {news.length > 0 ? (
         <>
-          <div 
+          <div
             className="group cursor-pointer mb-8"
             onClick={() => navigate(`/news/${news[0]._id}`)}
           >
@@ -811,7 +891,10 @@ export const LastSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute top-4 left-4">
-                <CategoryBadge category={category} color={`bg-gradient-to-r ${gradient}`} />
+                <CategoryBadge
+                  category={category}
+                  color={`bg-gradient-to-r ${gradient}`}
+                />
               </div>
               <div className="absolute bottom-4 left-4 right-4 text-white">
                 <h4 className="text-xl font-bold mb-2 line-clamp-2 group-hover:text-blue-200 transition-colors duration-300">
@@ -843,13 +926,17 @@ export const LastSection = () => {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r ${gradient} rounded-full flex items-center justify-center text-white text-xs font-bold`}>
+                  <div
+                    className={`absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r ${gradient} rounded-full flex items-center justify-center text-white text-xs font-bold`}
+                  >
                     {index + 1}
                   </div>
                 </div>
-                
+
                 <div className="flex-1 min-w-0">
-                  <h5 className={`font-semibold text-gray-900 group-hover:${accentColor} transition-colors duration-300 line-clamp-2 text-sm leading-tight`}>
+                  <h5
+                    className={`font-semibold text-gray-900 group-hover:${accentColor} transition-colors duration-300 line-clamp-2 text-sm leading-tight`}
+                  >
                     {item.title}
                   </h5>
                   <div className="flex items-center gap-2 mt-2">
@@ -860,7 +947,9 @@ export const LastSection = () => {
                 </div>
 
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${gradient}`}></div>
+                  <div
+                    className={`w-2 h-2 rounded-full bg-gradient-to-r ${gradient}`}
+                  ></div>
                 </div>
               </div>
             ))}
@@ -886,7 +975,7 @@ export const LastSection = () => {
             <Skeleton height={24} className="rounded-lg" />
             <Skeleton height={16} className="rounded-lg w-3/4" />
           </div>
-          
+
           {/* List Skeletons */}
           {Array.from({ length: 5 }).map((_, index) => (
             <div key={index} className="flex items-center gap-4">
@@ -909,38 +998,43 @@ export const LastSection = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-full shadow-lg mb-6">
             <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-gray-600">LIVE UPDATES</span>
+            <span className="text-sm font-semibold text-gray-600">
+              LIVE UPDATES
+            </span>
           </div>
-          <h2 className="text-5xl font-bold text-gray-900 mb-4">Market & Business</h2>
+          <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            Market & Business
+          </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Stay ahead with real-time financial news, market trends, and business insights
+            Stay ahead with real-time financial news, market trends, and
+            business insights
           </p>
         </div>
 
         {/* Three Column Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <CategorySection 
-            title="Economy" 
-            news={economyNews} 
-            category="Economy" 
+          <CategorySection
+            title="Economy"
+            news={economyNews}
+            category="Economy"
             link="/economy"
             gradient="from-green-500 to-emerald-600"
             accentColor="text-green-600"
           />
 
-          <CategorySection 
-            title="Business" 
-            news={businessNews} 
-            category="Business" 
+          <CategorySection
+            title="Business"
+            news={businessNews}
+            category="Business"
             link="/business"
             gradient="from-blue-500 to-cyan-600"
             accentColor="text-blue-600"
           />
 
-          <CategorySection 
-            title="Features" 
-            news={featuresNews} 
-            category="Features" 
+          <CategorySection
+            title="Features"
+            news={featuresNews}
+            category="Features"
             link="/features"
             gradient="from-purple-500 to-pink-600"
             accentColor="text-purple-600"
@@ -950,15 +1044,16 @@ export const LastSection = () => {
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay Informed with Premium Content</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Stay Informed with Premium Content
+            </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Get access to exclusive analysis, in-depth reports, and expert opinions across all business sectors.
+              Get access to exclusive analysis, in-depth reports, and expert
+              opinions across all business sectors.
             </p>
-          
           </div>
         </div>
       </div>
     </section>
   );
 };
-
