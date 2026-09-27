@@ -4,6 +4,7 @@ import { FaArrowRight,  FaClock } from "react-icons/fa";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { useNavigate } from "react-router-dom";
+import GPTAd from "../GPTAd";
 
 type NewsTypes = {
   _id: string;
@@ -263,6 +264,11 @@ export const HomeHero = () => {
             <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
               {featuredNews.title}
             </h1>
+            <GPTAd 
+        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/beforecontent" 
+        divId="div-gpt-ad-1790413598243-0" 
+        sizes={[[200, 200], [300, 250], 'fluid', [250, 250], [300, 600]]}
+      />
             <p className="text-xl text-gray-600 leading-relaxed">
               {featuredNews.content.slice(0, 200)}...
             </p>
