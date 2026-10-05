@@ -1,26 +1,13 @@
 import { Link } from "react-router-dom";
 import { NavLinks } from "../Components/NavComp/NavFucn";
-import GPTAd from "../Components/GPTAd";
-// import AdSense from "../Components/AdSense";
+import AdSense from "../Components/AdSense";
 
 export const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-16">
-      {/* <AdSense adSlot="3891595190" /> */}
+      <AdSense adSlot="3891595190" />
 
-      <GPTAd
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/footer"
-        divId="div-gpt-ad-1790414046745-0"
-        sizes={[
-          [336, 280],
-          [200, 200],
-          "fluid",
-          [250, 250],
-          [300, 100],
-          [300, 250],
-        ]}
-        style={{ minWidth: "200px", minHeight: "100px", display: "block" }}
-      />
+
 
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Footer Content */}

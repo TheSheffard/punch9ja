@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GPTAd from "../Components/GPTAd";
-// import AdSense from "../Components/AdSense";
+import AdSense from "../Components/AdSense";
 //
 type NewsType = {
   _id: string;
@@ -65,11 +64,8 @@ export const NewsDetails = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-6">
-      {/* <AdSense adSlot="3891595190" /> */}
-      <GPTAd
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/header"
-        divId="sport-top-ad-slot"
-      />
+      <AdSense adSlot="3891595190" />
+ 
 
       {news.image && (
         <img
@@ -80,28 +76,12 @@ export const NewsDetails = () => {
       )}
 
       <h1 className="text-3xl font-bold mt-4">{news.title}</h1>
-      <GPTAd
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/beforecontent"
-        divId="div-gpt-ad-1790413598243-0"
-        sizes={[[200, 200], [300, 250], "fluid", [250, 250], [300, 600]]}
-      />
+
 
       <p className="text-sm text-gray-500">{news.date}</p>
 
       <p className="mt-4 text-gray-700">{news.content}</p>
-       <GPTAd
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/inarticle1"
-        divId="div-gpt-ad-1790413801249-0"
-        sizes={[
-          [300, 250],
-          "fluid",
-          [336, 280],
-          [250, 250],
-          [300, 100],
-          [200, 200],
-        ]}
-        style={{ minWidth: "200px", minHeight: "100px", display: "block" }}
-      />
+  
     </div>
   );
 };
