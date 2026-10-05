@@ -5,8 +5,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import { NavLinks } from "../Components/NavComp/NavFucn";
-import GPTAd from "../Components/GPTAd";
-// import AdSense from "../Components/AdSense";
+import AdSense from "../Components/AdSense";
 
 type NewsTypes = {
   _id: string;
@@ -55,12 +54,8 @@ export const GeneralPage = () => {
     <div className="grid grid-cols-1 gap-3 md:gap-10 sm:grid-cols-[1fr_300px]">
       {/* News List Section */}
       <div>
-      <GPTAd 
-        adUnitPath="/23379399954/ca-pub-7013164622378766-tag/inarticle2" 
-        divId="div-gpt-ad-1790413901042-0" 
-        sizes={[[200, 200], [300, 250], [250, 250], [336, 280], 'fluid', [300, 100]]}
-        style={{ minWidth: '200px', minHeight: '100px', display: 'block' }}
-      />
+      <AdSense adSlot="3891595190" />
+
 
         <div className="grid grid-cols-1 gap-10 px-4 sm:px-2">
           {loading
